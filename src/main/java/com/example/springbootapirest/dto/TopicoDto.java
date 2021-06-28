@@ -1,4 +1,4 @@
-package com.example.springbootapirest.controller.dto;
+package com.example.springbootapirest.dto;
 
 import com.example.springbootapirest.model.Topico;
 

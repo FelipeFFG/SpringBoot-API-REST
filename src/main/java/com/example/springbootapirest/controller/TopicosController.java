@@ -1,11 +1,9 @@
 package com.example.springbootapirest.controller;
 
-import com.example.springbootapirest.controller.dto.TopicoDto;
+import com.example.springbootapirest.dto.TopicoDto;
 import com.example.springbootapirest.model.Curso;
 import com.example.springbootapirest.model.Topico;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
