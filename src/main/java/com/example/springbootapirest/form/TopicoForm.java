@@ -3,12 +3,26 @@ package com.example.springbootapirest.form;
 import com.example.springbootapirest.model.Curso;
 import com.example.springbootapirest.model.Topico;
 import com.example.springbootapirest.repository.CursoRepository;
-import com.example.springbootapirest.repository.TopicoRepository;
+
+
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class TopicoForm {
+    @NotEmpty
+    @NotNull
 
     private String titulo;
+
+    @NotEmpty
+    @NotNull
+
     private String mensagem;
+
+    @NotEmpty
+    @NotNull
+
     private String nomeCurso;
 
 
