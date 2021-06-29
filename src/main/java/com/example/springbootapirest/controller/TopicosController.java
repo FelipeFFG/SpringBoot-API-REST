@@ -1,5 +1,6 @@
 package com.example.springbootapirest.controller;
 
+import com.example.springbootapirest.dto.DetalhesDoTopicoDto;
 import com.example.springbootapirest.dto.TopicoDto;
 import com.example.springbootapirest.form.TopicoForm;
 import com.example.springbootapirest.model.Topico;
@@ -46,6 +47,13 @@ public class TopicosController {
 
         URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri(); //cria e converte o id em uri
         return ResponseEntity.created(uri).body(new TopicoDto(topico));
+    }
+
+
+    @GetMapping("/{id}")
+    public DetalhesDoTopicoDto detalhar(@PathVariable Long id){
+        Topico topico = topicoRepository.getOne(id);
+        return new DetalhesDoTopicoDto(topico);
     }
 
 }

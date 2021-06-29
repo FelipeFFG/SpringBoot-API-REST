@@ -11,6 +11,7 @@ public interface TopicoRepository extends JpaRepository<Topico,Long> {
 
 
 
+
     List<Topico> findByCurso_Nome(String nomeCurso);   //  _ :sinaliza que Curso é um tipo e que nome esta dentro dessa classe.
 
 //    @Query("SELECT t FROM Topico t WHERE t.curso.nome = :nomeCurso")
