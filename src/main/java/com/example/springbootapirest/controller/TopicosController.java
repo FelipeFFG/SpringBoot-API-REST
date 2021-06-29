@@ -6,8 +6,11 @@ import com.example.springbootapirest.model.Topico;
 import com.example.springbootapirest.repository.CursoRepository;
 import com.example.springbootapirest.repository.TopicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
                                                      //Por padrao ele assume que todos os metodos tem o @ReponseBody.
@@ -35,10 +38,12 @@ public class TopicosController {
 
 
     @PostMapping
-    public void cadastrar(@RequestBody TopicoForm form ){  //sinaliza pra pegar no corpo da requisição
+    public ResponseEntity<TopicoDto> cadastrar(@RequestBody TopicoForm form, UriComponentsBuilder uriBuilder){  //sinaliza pra pegar no corpo da requisição
         Topico topico =form.converter(cursoRepository);    //chama o repositorio do curso, pra buscar o curso com aquele nome, e converte os dados em um objeto TOPICO
         topicoRepository.save(topico);                     //salvamos o TOPICO no banco de dados.
-        
+
+        URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri(); //cria e converte o id em uri
+        return ResponseEntity.created(uri).body(new TopicoDto(topico));
     }
 
 }
